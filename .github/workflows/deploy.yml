@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3

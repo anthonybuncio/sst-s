@@ -1,4 +1,4 @@
-import { StackContext, Api, Cron } from "sst/constructs";
+import { StackContext, Api, Cron, Config } from "sst/constructs";
 
 export function API({ stack }: StackContext) {
   new Cron(stack, "Cron", {
