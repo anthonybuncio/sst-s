@@ -1,6 +1,8 @@
 import axios from "axios";
 import { ApiHandler } from "sst/node/api";
 
+const WEBHOOK = process.env.WEBHOOK_URL || process.env.LOCAL_WEBHOOK_URL;
+
 export const handler = ApiHandler(async (evt) => {
 	// return {
 	// 	statusCode: 200,
@@ -9,7 +11,7 @@ export const handler = ApiHandler(async (evt) => {
 	// 	})
 	// };
 	try {
-		const response = await axios.post("https://discord.com/api/webhooks/1118083859783897159/DZ1CQonoT0evOe6hFOGQdSfnchxkxxFNC75MyxtQA1jQdx6-PUvNj3sZnk-DTiO4l3PH" + "?wait=true", {
+		const response = await axios.post(WEBHOOK, {
 			content: `Hello, it's ${new Date().toLocaleString('en-US')}. Here are some updates: `
 		},
 			{
