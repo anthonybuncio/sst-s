@@ -1,8 +1,6 @@
 import axios from "axios";
 import { ApiHandler } from "sst/node/api";
 
-const WEBHOOK = process.env.WEBHOOK_URL || process.env.LOCAL_WEBHOOK_URL;
-
 export const handler = ApiHandler(async (evt) => {
 	// return {
 	// 	statusCode: 200,
@@ -10,6 +8,8 @@ export const handler = ApiHandler(async (evt) => {
 	// 		msg: "Howdy!"
 	// 	})
 	// };
+	const WEBHOOK = process.env.WEBHOOK_URL || process.env.LOCAL_WEBHOOK_URL;
+	console.log("Webhook value: ", WEBHOOK);
 	try {
 		const response = await axios.post(WEBHOOK, {
 			content: `Hello, it's ${new Date().toLocaleString('en-US')}. Here are some updates: `
