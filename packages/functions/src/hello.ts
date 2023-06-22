@@ -2,12 +2,6 @@ import axios from "axios";
 import { ApiHandler } from "sst/node/api";
 
 export const handler = ApiHandler(async (evt) => {
-	// return {
-	// 	statusCode: 200,
-	// 	body: JSON.stringify({
-	// 		msg: "Howdy!"
-	// 	})
-	// };
 	const WEBHOOK = process.env.WEBHOOK_URL || process.env.LOCAL_WEBHOOK_URL;
 	console.log("Webhook value: ", WEBHOOK);
 	try {
